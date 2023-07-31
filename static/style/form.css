@@ -38,3 +38,20 @@ img {
     width: 80%;
     margin: auto;
 }
+
+ul, li{
+    list-style: none;
+}
+
+p#ocr-result{
+    box-sizing: border-box;
+    border: 1px solid lightblue;
+}
+
+ul#ul-lang{
+    border: 1px solid lightblue;
+}
+
+ul#ul-lang li.li-lang{
+    display: inline-block;
+}

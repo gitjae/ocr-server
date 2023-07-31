@@ -1,4 +1,4 @@
-const board_number = window.location.pathname.split('/board/')[1]
+const board_number = window.location.pathname.split('/board/')[1].split('/')[0]
 var langs = [];
 
 $('#ocr-container').hide();

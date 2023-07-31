@@ -81,7 +81,7 @@ class UserDetail(APIView):
             if 'password' in request.data :
                 user.set_password(user.password)
                 user.save()
-            return Response(serializer.data)
+            return redirect('/')
         return Response(serializer.errors)
 
     def delete(self, request, username):

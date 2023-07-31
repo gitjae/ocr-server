@@ -10,17 +10,6 @@
 {% include 'header.html' %}
 <body>
     <h1>안녕하세요 {{user.username}}님</h1>
-    <h2>board {{data.count}}</h2>
-    <ul class="ul-con">
-    {% for board in data %}
-        <li class="li-con">
-            <h4 class="title">제목 : {{board.title}}</h4>
-            <span>작성자 : {{board.username}}</span>
-            <p class="content">{{board.content}}</p>
-            <input type="datetime" value="{{board.updated_time}}" readonly>
-            <p>파일명 : {{board.file}}</p>
-        </li>
-    {% endfor %}
-    </ul>
 </body>
+{% include 'footer.html' %}
 </html>

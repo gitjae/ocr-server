@@ -27,6 +27,6 @@ function user_update(){
         },
         data: JSON.stringify(data)
     }).done(result => {
-        location.href = `/api/v1/users/user/${username}`;
+        location.href = `/login`;
     })
 }

@@ -1,0 +1,63 @@
+body {
+    width: 100%;
+    margin: 0 auto;
+    line-height: 1;
+}
+
+a {
+    box-sizing: border-box;
+    border: 1px solid lightblue;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightblue;
+}
+
+h1>a{
+    border: none;
+}
+h1>a:hover{
+    background-color: white;
+}
+
+div#menu{
+    background-color: lightblue;
+    width: 100%;
+}
+div#menu>*{
+    display: inline-block;
+}
+
+div#menu-right{
+    float: right;
+}
+
+div#menu-right>*{
+    display: inline-block;
+}
+div#menu-right>form#form-logout{
+    display: inline-block;
+    width: auto;
+}
+
+form>input{
+    box-sizing: border-box;
+    border: 1px solid lightblue;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+form>input:hover{
+    color: lightblue;
+    cursor: pointer;
+}
+
+h1{
+    margin: 50px 0;
+    text-align: center;
+    font-size:xx-large;
+}

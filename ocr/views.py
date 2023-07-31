@@ -67,5 +67,8 @@ def user_update(request):
 def board_list(request):
     return render(request, 'board_list.html')
 
+def board_update(request, post_no):
+    return render(request, 'board_update_form.html')
+
 # def logout(request):
 #     return render(request, 'logout_form.html')

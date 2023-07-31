@@ -9,6 +9,7 @@ from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnl
 from pyuploadcare import Uploadcare, File
 from django.conf import settings
 from django.shortcuts import redirect
+import os
 
 from urllib import request
 from .serializer import BoardSerializer
@@ -48,6 +49,12 @@ class Boards(APIView):
             
             board.username = request.user
             board.save()
+
+            mediafile = f"media/{board.file}"
+            print('mediafile:',mediafile)
+            if os.path.isfile(mediafile):
+                os.remove(mediafile)
+
             return redirect(f'/board/{board.post_no}')
             #return Response(serializer.data)
         return Response(serializer.errors)
