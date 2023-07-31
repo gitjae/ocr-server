@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from django.http import JsonResponse
 from PIL import Image
 import pytesseract
+import urllib.request
+from io import BytesIO
 
 class OCR(APIView):
     def get(self, request):
@@ -19,6 +20,27 @@ class OCR(APIView):
         lang = lang[0:-1]
 
         result = pytesseract.image_to_string(image, lang=lang)
+        return Response({"result":result})
+    
+    def post(self, request):
+        data = request.data
+        file = data.get('file')
+        langs = data.get('langs')
+        #file = file[1:]
+
+        with urllib.request.urlopen(file) as url:
+            image_bytes = BytesIO(url.read())
+
+        image = Image.open(image_bytes)
+
+        lang = ''
+        for l in langs:
+            lang += l
+            lang += '+'
+        lang = lang[0:-1]
+
+        result = pytesseract.image_to_string(image, lang=lang)
+        print('result:',result)
         return Response({"result":result})
 
 def index(request):

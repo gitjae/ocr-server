@@ -13,11 +13,13 @@ $.ajax({
     $('#author').text(board.username === null ? 'anonymous' : board.username.username);
     $('#title').val(board.title);
     $('#contents').val(board.contents);
-    $('#loaded_file').attr('src', board.file);
+    $('#loaded_file').attr('src', board.image_link);
     $('#created_at').val(board.created_time);
     $('#modified_at').val(board.updated_time);
 
-    if($('#loaded_file').attr('src') != null){
+    const loaded = $('#loaded_file').attr('src')
+    
+    if($('#loaded_file').attr('src') != ""){
         $('#ocr-container').show();
     }
 });
@@ -48,13 +50,20 @@ function ocr(){
     const file = $('#loaded_file').attr('src');
     console.log(file)
 
-    data = {
+    let data = {
         file:file,
-        langs:JSON.stringify(langs)
+        langs:langs
     };
 
     $.ajax({
-        method:'GET',
-        url:`/ocr?file=${file}`
+        method:'POST',
+        url:`/ocr`,
+        headers: {
+            'X-CSRFToken': csrftoken,
+            'Content-Type': 'application/json'
+        },
+        data:JSON.stringify(data)
+    }).done(result => {
+        $('#ocr-result').text(result.result);
     })
 }

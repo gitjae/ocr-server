@@ -44,7 +44,7 @@ class Boards(APIView):
                     print('ucare_file.uuid:', ucare_file.uuid)
                     img_url = f'https://ucarecdn.com/{ucare_file.uuid}/'
                     print('img_url:',img_url)
-                    board.image_url = img_url
+                    board.image_link = img_url
             
             board.username = request.user
             board.save()
