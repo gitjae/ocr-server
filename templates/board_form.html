@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% include 'header.html' %}
+<body>
+    <h2>게시판</h2>
+    <form method="POST" action="/api/v1/boards/" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" id="title" name="title" placeholder="title">
+        <textarea id="content" name="content"></textarea>
+        <input type="file" id="file" name="file" accept="image/png, image/jpg, image/jpeg, image/gif">
+        <input type="submit" value="작성">
+    </form>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+    <script src="{% static 'script/csrf.js' %}"></script>
+</head>
+<body>
+    <h1>ORM</h1>
+    <a href="/boards">게시판</a>
+    {% if user.is_authenticated %}
+        <a href="/mypage">마이페이지</a>
+        <form method="post" action="/api/v1/users/logout">
+            {% csrf_token %}
+            <input type="submit" value="logout">
+        </form>
+    {% else %}
+        <a href="/login">로그인</a>
+        <a href="/join">회원가입</a>
+    {% endif %}
+</body>
+</html>

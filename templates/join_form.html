@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% include 'header.html' %}
+<body>
+    <form method="post" action="api/v1/users/">
+        {% csrf_token %}
+        <input type="text" id="username" name="username" placeholder="아이디">
+        <input type="password" id="password" name="password" placeholder="비밀번호">
+        <input type="password" id="passwordChk" name="passwordChk" placeholder="비밀번호확인">
+        <input type="text" id="name" name="name" placeholder="이름">
+        <input type="email" id="email" name="email" placeholder="email@email.email">
+        <input type="submit" value="회원가입">
+    </form>
+</body>
+</html>

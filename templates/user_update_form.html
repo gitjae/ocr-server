@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="{% static 'script/csrf.js' %}"></script> -->
+</head>
+{% include 'header.html' %}
+<body>
+    <form onsubmit="return false">
+        <input type="text" id="username" name="username" value="{{ user.username }}" readonly>
+        <input type="text" id="name" name="name" value="{{ user.name }}" readonly>
+        <input type="password" id="password" name="password" placeholder="비밀번호">
+        <input type="email" id="email" name="email" placeholder="email@email.email">
+        <button id="submit-btn" onclick="user_update()">수정</button>
+    </form>
+    <script src="{% static 'script/user-api.js' %}"></script>
+</body>
+</html>
